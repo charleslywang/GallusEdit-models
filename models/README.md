@@ -15,7 +15,7 @@ large `*.joblib` artifact (distributed through the GitHub Release).
 | QBEmax | `be/G` | `G.final_tabpfn_be_model.joblib` | BE efficiency, 0–1 |
 
 BE inputs (sequence mode): `target63_sequence` (20-nt upstream + 20-nt spacer +
-3-nt PAM + 20-nt downstream); `normalized_sgrna_name` and `sgrna_sequence` are
+NGG PAM + 20-nt downstream); `normalized_sgrna_name` and `sgrna_sequence` are
 optional.
 
 ## Nuclease / indel models

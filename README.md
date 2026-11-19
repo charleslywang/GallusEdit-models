@@ -30,7 +30,7 @@ nuclease/indel editors.
 | rAPOBEC1-BE3 | Base editing efficiency | 63-nt target sequence |
 | QBEmax | Base editing efficiency | 63-nt target sequence |
 
-Target sequence layout: 63 nt = 20-nt upstream + 20-nt spacer + 3-nt PAM + 20-nt
+Target sequence layout: 63 nt = 20-nt upstream + 20-nt spacer + NGG PAM + 20-nt
 downstream; 66 nt = 20-nt upstream + TTN PAM + 23-nt spacer + 20-nt downstream.
 
 ## Repository layout
@@ -104,7 +104,7 @@ CUDA_VISIBLE_DEVICES=0 python predict_be_efficiency.py \
 ### Nuclease / indel models
 
 SpCas9 and OpenCRISPR-1 input column: `target63_sequence`
-(20-nt upstream + 20-nt spacer + 3-nt PAM + 20-nt downstream).
+(20-nt upstream + 20-nt spacer + NGG PAM + 20-nt downstream).
 
 hfCas12Max input column: `target66_sequence`
 (20-nt upstream + TTN PAM + 23-nt spacer + 20-nt downstream).
