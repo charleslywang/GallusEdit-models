@@ -1,0 +1,75 @@
+{
+  "schema_version": "2026-06-22",
+  "default_target_column": "target_mean_target_editing_efficiency",
+  "default_sample_weight_column": "sample_weight",
+  "tabpfn_default_model_path": "/mnt/A/charles/Software/TabPFN/weight/tabpfn-v2.5-regressor-v2.5_default.ckpt",
+  "default_final_model_root": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models",
+  "models": [
+    {
+      "short_name": "A",
+      "protein_name": "ABE8e-nSpCas9",
+      "editor_type": "ABE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_A_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_A_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_A_model_papline/results/06.final_tabpfn_logit_oof/A/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_A_model_papline/results/06.final_tabpfn_logit_oof/A/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_A_model_papline/results/07.final_plots/ABE_A_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/A/A.final_tabpfn_be_model.joblib"
+    },
+    {
+      "short_name": "B",
+      "protein_name": "ABE8e-nSpCas9-NG",
+      "editor_type": "ABE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_B_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_B_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_B_model_papline/results/06.final_tabpfn_logit_oof/B/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_B_model_papline/results/06.final_tabpfn_logit_oof/B/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_B_model_papline/results/07.final_plots/ABE_B_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/B/B.final_tabpfn_be_model.joblib"
+    },
+    {
+      "short_name": "C",
+      "protein_name": "ABEmax-nSpRY",
+      "editor_type": "ABE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_C_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_C_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_C_model_papline/results/06.final_tabpfn_logit_oof/C/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_C_model_papline/results/06.final_tabpfn_logit_oof/C/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.ABE_C_model_papline/results/07.final_plots/ABE_C_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/C/C.final_tabpfn_be_model.joblib"
+    },
+    {
+      "short_name": "D",
+      "protein_name": "BE4max",
+      "editor_type": "CBE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_D_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_D_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_D_model_papline/results/06.final_tabpfn_logit_oof/D/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_D_model_papline/results/06.final_tabpfn_logit_oof/D/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_D_model_papline/results/07.final_plots/CBE_D_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/D/D.final_tabpfn_be_model.joblib"
+    },
+    {
+      "short_name": "E",
+      "protein_name": "rAPOBEC1-BE3",
+      "editor_type": "CBE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_E_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_E_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_E_model_papline/results/06.final_tabpfn_logit_oof/E/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_E_model_papline/results/06.final_tabpfn_logit_oof/E/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_E_model_papline/results/07.final_plots/CBE_E_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/E/E.final_tabpfn_be_model.joblib"
+    },
+    {
+      "short_name": "G",
+      "protein_name": "QBEmax",
+      "editor_type": "CBE",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_G_model_papline",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_G_model_papline/results/05.logit_oof_error_filtered_dataset/raw_efficiency_target_dataset.oof_error_filtered.logit.noleak.tsv",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_G_model_papline/results/06.final_tabpfn_logit_oof/G/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_G_model_papline/results/06.final_tabpfn_logit_oof/G/oof_predictions.tsv",
+      "final_scatter_png": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.CBE_G_model_papline/results/07.final_plots/CBE_G_logit_oof_error_filtered_observed_vs_predicted_raw.png",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models/G/G.final_tabpfn_be_model.joblib"
+    }
+  ]
+}

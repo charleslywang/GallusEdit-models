@@ -1,0 +1,10 @@
+model_family	display_name	short_name	editor_type	model_file	size_bytes	sha256	n_train	n_features	oof_pearson_raw	oof_r2_raw	oof_mae_raw	oof_pearson_logit	oof_r2_logit
+base_editor	ABE8e-nSpCas9	A	ABE	models/be/A/A.final_tabpfn_be_model.joblib	113473310	8e5390939fbf776a581868d9d77413b89ab654120a24923d45ea84bb6ee958d7	12518	570	0.8306	0.6837	0.0895	0.9341	0.8722
+base_editor	ABE8e-nSpCas9-NG	B	ABE	models/be/B/B.final_tabpfn_be_model.joblib	113443408	1457db94dd7df8b535232d321a2bf7db1dcf4c41fd8eba5cf7fd50bb6eee8191	12515	570	0.8269	0.6639	0.0927	0.9029	0.8146
+base_editor	ABEmax-nSpRY	C	ABE	models/be/C/C.final_tabpfn_be_model.joblib	113429800	83967d47e9b93df7769b9ace89c233801026ea929c954ab09b08b78622f73e36	12519	570	0.8255	0.6325	0.0511	0.8539	0.7278
+base_editor	BE4max	D	CBE	models/be/D/D.final_tabpfn_be_model.joblib	113503483	e52a6669b8d8ca3e16a762ea96dee6680afb879cec6e1c57c1bdd70993e1818f	12514	570	0.7477	0.545	0.1163	0.8227	0.6728
+base_editor	rAPOBEC1-BE3	E	CBE	models/be/E/E.final_tabpfn_be_model.joblib	113350987	ad30b13604e71900eda5a5dde6003100028b66b0411b747b4fad7c2ef0386fb8	12486	570	0.807	0.6358	0.1052	0.8618	0.7422
+base_editor	QBEmax	G	CBE	models/be/G/G.final_tabpfn_be_model.joblib	113607559	7556f4c493ec8bfc2187d102e9efbe6b4c53bd913aae375f5164abcf41112608	12529	570	0.7165	0.5025	0.1163	0.8111	0.6542
+nuclease_indel	SpCas9	SpCas9	indel	models/indel/SpCas9/SpCas9.final_tabpfn_indel_model.joblib	97781244	ecb2f849cb7477a1097cee569d64d5055179c8a395ebdbd0c812c52f0ebee183	10000	1057	0.8051	0.6405	0.1121		
+nuclease_indel	OpenCRISPR-1	OpenCRISPR	indel	models/indel/OpenCRISPR/OpenCRISPR.final_tabpfn_indel_model.joblib	104810563	01da13874252e69bcad1c765d71f585c9775cfbc7046d61cf99b30be5a303fa6	11218	1057	0.81	0.6301	0.0955		
+nuclease_indel	hfCas12Max	hfCas12MAX	indel	models/indel/hfCas12MAX/hfCas12MAX.final_tabpfn_indel_model.joblib	98702593	704458dec21696d6ceaca02e98be5f2ced5c1a3d38cebe338dd44c45f51ca6fc	10000	1026	0.7918	0.6246	0.0507		

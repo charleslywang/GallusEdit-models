@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use GallusEdit, please cite this software repository and the accompanying paper."
+title: "GallusEdit models: deep learning models for CRISPR base-editing and indel efficiency prediction"
+type: software
+authors:
+  - name: "Genetics & Genomics Lab, Henan Agricultural University"
+repository-code: "https://github.com/charleslywang/GallusEdit-models"
+url: "https://github.com/charleslywang/GallusEdit-models"
+license: CC-BY-NC-4.0
+version: 1.0.0
+date-released: 2026-11-19
+keywords:
+  - CRISPR
+  - base editing
+  - indel
+  - sgRNA
+  - TabPFN

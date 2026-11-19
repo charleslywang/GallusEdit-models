@@ -1,0 +1,61 @@
+{
+  "schema_version": "2026-07-08",
+  "model_family": "indel_nuclease",
+  "default_target_column": "target_mean_target_editing_efficiency",
+  "default_sample_weight_column": "sample_weight",
+  "tabpfn_default_model_path": "/mnt/A/charles/Software/TabPFN/weight/tabpfn-v2.5-regressor-v2.5_default.ckpt",
+  "default_final_model_root": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models_indel",
+  "models": [
+    {
+      "short_name": "SpCas9",
+      "protein_name": "SpCas9",
+      "protein_group": "SpCas9_WT_corrected_removeTop1844",
+      "editor_type": "SpCas9_indel_WT_corrected_removeTop1844",
+      "model_task": "SpCas9 indel insertion/deletion editing efficiency",
+      "pm": "pm1",
+      "sequence_feature_builder": "spcas9_63nt_pam3",
+      "prediction_transform": "sigmoid",
+      "target_scale": "logit_efficiency",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/SpCas9/06.SpCas9_1",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/SpCas9/06.SpCas9_1/results/01.spcas9_feature_inputs_removeTop1844/opencrispr_logit_dataset/pm1/OpenCRISPR_indel_efficiency.features.logit.noleak.tsv",
+      "feature_manifest_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/SpCas9/06.SpCas9_1/results/02.spcas9_tabpfn_logit_oof_removeTop1844/pm1/feature_manifest.json",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/SpCas9/06.SpCas9_1/results/02.spcas9_tabpfn_logit_oof_removeTop1844/pm1/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/SpCas9/06.SpCas9_1/results/02.spcas9_tabpfn_logit_oof_removeTop1844/pm1/oof_predictions.tsv",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models_indel/SpCas9/SpCas9.final_tabpfn_indel_model.joblib"
+    },
+    {
+      "short_name": "OpenCRISPR",
+      "protein_name": "OpenCRISPR",
+      "protein_group": "OpenCRISPR_02_opencrispr_WT_corrected",
+      "editor_type": "OpenCRISPR_indel_02_opencrispr_WT_corrected",
+      "model_task": "OpenCRISPR indel insertion/deletion editing efficiency",
+      "pm": "pm1",
+      "sequence_feature_builder": "spcas9_63nt_pam3",
+      "prediction_transform": "sigmoid",
+      "target_scale": "logit_efficiency",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/06.OpenCRISPR/02.opencrispr",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/06.OpenCRISPR/02.opencrispr/results/01.opencrispr_feature_inputs_WT_corrected/opencrispr_logit_dataset/pm1/OpenCRISPR_indel_efficiency.features.logit.noleak.tsv",
+      "feature_manifest_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/06.OpenCRISPR/02.opencrispr/results/02.opencrispr_tabpfn_logit_oof_WT_corrected/pm1/feature_manifest.json",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/06.OpenCRISPR/02.opencrispr/results/02.opencrispr_tabpfn_logit_oof_WT_corrected/pm1/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/06.OpenCRISPR/02.opencrispr/results/02.opencrispr_tabpfn_logit_oof_WT_corrected/pm1/oof_predictions.tsv",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models_indel/OpenCRISPR/OpenCRISPR.final_tabpfn_indel_model.joblib"
+    },
+    {
+      "short_name": "hfCas12MAX",
+      "protein_name": "hfCas12MAX",
+      "protein_group": "haCas12Max",
+      "editor_type": "haCas12Max_indel",
+      "model_task": "hfCas12MAX pos42_57 indel editing efficiency",
+      "pm": "pos42_57_keep10000",
+      "sequence_feature_builder": "hfcas12max_66nt_pam3",
+      "prediction_transform": "identity_clip",
+      "target_scale": "raw_efficiency",
+      "pipeline_dir": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/07.hfCas12MAX/06.haCas12Max_2",
+      "training_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/07.hfCas12MAX/06.haCas12Max_2/results/16.pam3_raw_error_filtered_feature_inputs/pos42_57/keep10000/raw_dataset/pos42_57_pam3_raw_error_filtered10000/raw_efficiency_target_dataset.redundancy_pruned.noleak.tsv",
+      "feature_manifest_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/07.hfCas12MAX/06.haCas12Max_2/results/17.pam3_raw_error_filtered_tabpfn_oof/pos42_57/keep10000/feature_manifest.json",
+      "run_summary_json": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/07.hfCas12MAX/06.haCas12Max_2/results/17.pam3_raw_error_filtered_tabpfn_oof/pos42_57/keep10000/run_summary.json",
+      "oof_predictions_tsv": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/07.hfCas12MAX/06.haCas12Max_2/results/17.pam3_raw_error_filtered_tabpfn_oof/pos42_57/keep10000/oof_predictions.tsv",
+      "final_model_artifact": "/mnt/A/charles/Projects/Project0104.DeepSgRNA/02.Analysis/02.BE_papline_agents/final_models_indel/hfCas12MAX/hfCas12MAX.final_tabpfn_indel_model.joblib"
+    }
+  ]
+}

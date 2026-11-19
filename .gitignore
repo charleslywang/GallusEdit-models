@@ -1,0 +1,19 @@
+# Model binaries are distributed as GitHub Release assets, not tracked by git
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local outputs
+outputs/
+predictions/
+*.log

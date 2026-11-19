@@ -1,0 +1,11 @@
+# Core inference environment (validated with the versions below)
+numpy==2.3.5
+pandas==2.3.3
+scikit-learn==1.6.1
+joblib>=1.4
+tabpfn==6.4.1
+torch>=2.4
+
+# ViennaRNA provides RNAfold for sgRNA secondary-structure features
+# (install via conda: `conda install -c bioconda viennarna=2.7.2`)
+# ViennaRNA==2.7.2
