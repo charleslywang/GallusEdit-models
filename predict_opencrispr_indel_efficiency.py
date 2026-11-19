@@ -30,7 +30,7 @@ def parse_args() -> argparse.Namespace:
         "--input-mode",
         choices=["auto", "features", "sequence"],
         default="auto",
-        help="features: table already contains model features; sequence: SpCas9/OpenCRISPR need sgrna_sequence,pam,target63_sequence; hfCas12MAX needs sgrna_sequence,target66_sequence.",
+        help="features: table already contains model features; sequence: target63_sequence for SpCas9/OpenCRISPR, target66_sequence for hfCas12MAX (sgRNA and PAM optional).",
     )
     parser.add_argument("--models", nargs="*", default=None, help="Original protein names. Default: all registered indel models.")
     parser.add_argument("--target-column", default="target_mean_target_editing_efficiency")
@@ -87,6 +87,10 @@ def infer_input_mode(df: pd.DataFrame, requested: str) -> str:
     if requested != "auto":
         return requested
     sequence_col_sets = [
+        {"target63_sequence"},
+        {"sequence_63nt"},
+        {"target66_sequence"},
+        {"sequence_66bp"},
         {"sgrna_sequence", "pam", "target63_sequence"},
         {"sgrna_sequence", "target66_sequence"},
         {"sgRNA", "PAM", "sequence_63nt"},

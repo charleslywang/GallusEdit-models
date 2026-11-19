@@ -14,8 +14,9 @@ large `*.joblib` artifact (distributed through the GitHub Release).
 | rAPOBEC1-BE3 | `be/E` | `E.final_tabpfn_be_model.joblib` | BE efficiency, 0–1 |
 | QBEmax | `be/G` | `G.final_tabpfn_be_model.joblib` | BE efficiency, 0–1 |
 
-BE inputs (sequence mode): `normalized_sgrna_name`, `sgrna_sequence`,
-`target63_sequence` (20 nt upstream + 20 nt sgRNA + PAM3 + 20 nt downstream).
+BE inputs (sequence mode): `target63_sequence` (20 nt upstream + 20 nt sgRNA +
+PAM3 + 20 nt downstream); `normalized_sgrna_name` and `sgrna_sequence` are
+optional.
 
 ## Nuclease / indel models
 
@@ -25,7 +26,6 @@ BE inputs (sequence mode): `normalized_sgrna_name`, `sgrna_sequence`,
 | OpenCRISPR-1 | `indel/OpenCRISPR` | `OpenCRISPR.final_tabpfn_indel_model.joblib` | indel efficiency, 0–1 |
 | hfCas12Max | `indel/hfCas12MAX` | `hfCas12MAX.final_tabpfn_indel_model.joblib` | indel efficiency, 0–1 |
 
-SpCas9 / OpenCRISPR-1 inputs: `normalized_sgrna_name`, `sgrna_sequence`, `pam`,
-`target63_sequence`. hfCas12Max inputs: `normalized_sgrna_name`,
-`sgrna_sequence`, `target66_sequence` (`upstream20 + TTN PAM + sgRNA23 +
-downstream20`).
+SpCas9 / OpenCRISPR-1 input: `target63_sequence`. hfCas12Max input:
+`target66_sequence` (`upstream20 + TTN PAM + sgRNA23 + downstream20`).
+`normalized_sgrna_name`, `sgrna_sequence` and `pam` are optional.

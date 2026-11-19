@@ -143,7 +143,7 @@ def validate_sequences(row_id: str, sgrna: str, context66: str) -> tuple[str, st
     sgrna = clean_dna(sgrna)
     context66 = clean_dna(context66)
     problems = []
-    if len(sgrna) != EXPECTED_SGRNA_LEN or not is_acgt(sgrna):
+    if sgrna and (len(sgrna) != EXPECTED_SGRNA_LEN or not is_acgt(sgrna)):
         problems.append(f"sgRNA length/base invalid: {sgrna}")
     if len(context66) != EXPECTED_CONTEXT_LEN or not is_acgt(context66):
         problems.append(f"sequence_66bp length/base invalid: {context66}")
@@ -153,8 +153,8 @@ def validate_sequences(row_id: str, sgrna: str, context66: str) -> tuple[str, st
     downstream = context66[-EXPECTED_DOWNSTREAM_LEN:]
     if not re.fullmatch(r"TT[ACGT]", pam):
         problems.append(f"PAM is not TTN: {pam}")
-    if spacer != sgrna:
-        problems.append("sgRNA is not equal to sequence_66bp[23:46]")
+    if sgrna and spacer != sgrna:
+        problems.append("sgRNA is not equal to sequence_66bp[24:46]")
     if problems:
         raise ValueError(f"{row_id}: " + "; ".join(problems))
     return upstream, pam, spacer, downstream
@@ -222,11 +222,18 @@ def get_value(row: pd.Series, names: list[str]) -> object:
     raise ValueError(f"输入缺少列，候选列名: {names}")
 
 
+def optional_value(row: pd.Series, names: list[str]) -> str:
+    for name in names:
+        if name in row and not pd.isna(row[name]) and str(row[name]).strip():
+            return str(row[name])
+    return ""
+
+
 def build_feature_frame(input_df: pd.DataFrame, *, protein_group: str = "haCas12Max", editor_type: str = "haCas12Max_indel") -> pd.DataFrame:
     rows = []
     for idx, row in input_df.reset_index(drop=True).iterrows():
         row_id = row.get("normalized_sgrna_name", row.get("ID", f"query_{idx + 1}"))
-        sgrna = get_value(row, ["sgrna_sequence", "sgRNA", "sgRNA_sequence", "sgrna", "spacer"])
+        sgrna = optional_value(row, ["sgrna_sequence", "sgRNA", "sgRNA_sequence", "sgrna", "spacer"])
         context66 = get_value(row, ["target66_sequence", "sequence_66bp", "sequence_66nt", "context66", "target_context_66nt_sequence"])
         rows.append(
             build_sequence_features(

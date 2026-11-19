@@ -45,8 +45,8 @@ def parse_args() -> argparse.Namespace:
         choices=["auto", "features", "sequence", "short30", "short40", "short50", "sgrna20"],
         default="auto",
         help=(
-            "features: table already contains model features; sequence: needs sgrna_sequence and "
-            "target63_sequence; short30: needs sgrna_sequence/refs and short_context30_sequence/surro_target; "
+            "features: table already contains model features; sequence: needs target63_sequence "
+            "(sgrna_sequence optional); short30: needs sgrna_sequence/refs and short_context30_sequence/surro_target; "
             "short40: needs BE_Endo-style target40_sequence; short50: needs BE-Hive-style target50_sequence/Input; "
             "sgrna20: needs only 20 nt sgrna_sequence."
         ),
@@ -92,6 +92,8 @@ def parse_args() -> argparse.Namespace:
 def infer_input_mode(df: pd.DataFrame, requested: str) -> str:
     if requested != "auto":
         return requested
+    if {"target63_sequence"}.issubset(df.columns):
+        return "sequence"
     if {"sgrna_sequence", "target63_sequence"}.issubset(df.columns):
         return "sequence"
     if {"sgrna_sequence", "short_context30_sequence"}.issubset(df.columns) or {"refs", "surro_target"}.issubset(df.columns):

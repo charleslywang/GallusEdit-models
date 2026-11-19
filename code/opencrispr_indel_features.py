@@ -259,13 +259,20 @@ def get_value(row: pd.Series, names: list[str]) -> object:
     raise ValueError(f"输入缺少列，候选列名: {names}")
 
 
+def optional_value(row: pd.Series, names: list[str]) -> str:
+    for name in names:
+        if name in row and not pd.isna(row[name]) and str(row[name]).strip():
+            return str(row[name])
+    return ""
+
+
 def build_feature_frame(input_df: pd.DataFrame, *, protein_group: str = "OpenCRISPR", editor_type: str = "OpenCRISPR_indel") -> pd.DataFrame:
     rows = []
     for idx, row in input_df.reset_index(drop=True).iterrows():
         row_id = row.get("normalized_sgrna_name", row.get("ID", f"query_{idx + 1}"))
-        sgrna = get_value(row, ["sgrna_sequence", "sgRNA", "sgRNA_sequence", "sgrna", "spacer"])
-        pam = get_value(row, ["pam", "PAM"])
-        context63 = get_value(row, ["target63_sequence", "sequence_63nt", "sequence_63bp", "context63", "target_context_63nt_sequence"])
+        context63 = clean_dna(str(get_value(row, ["target63_sequence", "sequence_63nt", "sequence_63bp", "context63", "target_context_63nt_sequence"])))
+        sgrna = optional_value(row, ["sgrna_sequence", "sgRNA", "sgRNA_sequence", "sgrna", "spacer"]) or context63[UPSTREAM_LEN : UPSTREAM_LEN + PROTOSPACER_LEN]
+        pam = optional_value(row, ["pam", "PAM"]) or context63[UPSTREAM_LEN + PROTOSPACER_LEN : UPSTREAM_LEN + PROTOSPACER_LEN + PAM_LEN]
         rows.append(
             build_sequence_features(
                 row_id=str(row_id),

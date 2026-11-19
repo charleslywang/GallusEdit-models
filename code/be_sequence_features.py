@@ -250,14 +250,22 @@ def build_basic_feature_frame(
     editable_base = "A" if editor_type == "ABE" else "C"
     rnafold_cache = rnafold_feature_cache if rnafold_feature_cache is not None else {}
     for idx, input_row in input_df.reset_index(drop=True).iterrows():
-        if "sgrna_sequence" not in input_row or "target63_sequence" not in input_row:
-            raise ValueError("序列输入至少需要列: sgrna_sequence, target63_sequence")
-        sgrna = clean_sequence(input_row["sgrna_sequence"], name="sgrna_sequence")
+        if "target63_sequence" not in input_row:
+            raise ValueError("序列输入至少需要列: target63_sequence")
         target63 = clean_sequence(input_row["target63_sequence"], name="target63_sequence")
-        if len(sgrna) != 20:
-            raise ValueError(f"第 {idx + 1} 行 sgrna_sequence 长度不是 20: {len(sgrna)}")
         if len(target63) != 63:
             raise ValueError(f"第 {idx + 1} 行 target63_sequence 长度不是 63: {len(target63)}")
+        sgrna_value = input_row.get("sgrna_sequence")
+        if sgrna_value is None or pd.isna(sgrna_value) or str(sgrna_value).strip() == "":
+            sgrna = target63[20:40]
+        else:
+            sgrna = clean_sequence(sgrna_value, name="sgrna_sequence")
+            if sgrna != target63[20:40]:
+                raise ValueError(
+                    f"第 {idx + 1} 行 sgrna_sequence 与 target63_sequence 第 21-40 位不一致"
+                )
+        if len(sgrna) != 20:
+            raise ValueError(f"第 {idx + 1} 行 sgrna_sequence 长度不是 20: {len(sgrna)}")
         row: dict[str, object] = {
             "normalized_sgrna_name": input_row.get("normalized_sgrna_name", f"query_{idx + 1}"),
             "protein_group": protein_group,
