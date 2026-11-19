@@ -29,6 +29,3 @@ SpCas9 / OpenCRISPR-1 inputs: `normalized_sgrna_name`, `sgrna_sequence`, `pam`,
 `target63_sequence`. hfCas12Max inputs: `normalized_sgrna_name`,
 `sgrna_sequence`, `target66_sequence` (`upstream20 + TTN PAM + sgRNA23 +
 downstream20`).
-
-`model_manifest.tsv` lists display names, short names, file sizes, SHA-256
-checksums, training sizes, feature counts and out-of-fold metrics.
