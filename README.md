@@ -64,7 +64,8 @@ provides the `RNAfold` executable used for base-editor sequence features
 ## Download the model files
 
 ```bash
-export GH_TOKEN=<your_github_token>   # needs read access to this private repo
+# GH_TOKEN is optional; set it only if you hit GitHub API rate limits
+export GH_TOKEN=<your_github_token>
 python scripts/download_models.py --tag v1.0.0
 python scripts/verify_models.py
 ```

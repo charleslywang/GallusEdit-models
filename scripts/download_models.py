@@ -2,8 +2,9 @@
 """Download GallusEdit model artifacts from GitHub Release assets.
 
 Usage:
-    export GH_TOKEN=<token with repo read access>
     python scripts/download_models.py --tag v1.0.0
+
+GH_TOKEN is only needed for private repositories or when hitting API rate limits.
 """
 from __future__ import annotations
 
@@ -21,16 +22,14 @@ MANIFEST = ROOT / "models" / "model_manifest.tsv"
 
 
 def api_request(url: str, token: str, accept: str = "application/vnd.github+json"):
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Authorization": f"token {token}",
-            "Accept": accept,
-            "X-GitHub-Api-Version": "2022-11-28",
-            "User-Agent": "gallusedit-downloader",
-        },
-    )
-    return urllib.request.urlopen(req, timeout=120)
+    headers = {
+        "Accept": accept,
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "gallusedit-downloader",
+    }
+    if token:
+        headers["Authorization"] = f"token {token}"
+    return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=120)
 
 
 def sha256(path: Path) -> str:
@@ -66,8 +65,6 @@ def main() -> None:
     args = parser.parse_args()
 
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
-    if not token:
-        sys.exit("GH_TOKEN or GITHUB_TOKEN is required (private repository).")
 
     assets = list_assets(args.tag, token)
     rows = read_manifest()
