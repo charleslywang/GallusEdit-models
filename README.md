@@ -10,23 +10,28 @@ nuclease/indel editors.
 
 | Model | Task | Input layout |
 |---|---|---|
-| SpCas9 | Indel editing efficiency | 63 nt target sequence |
-| OpenCRISPR-1 | Indel editing efficiency | 63 nt target sequence |
-| hfCas12Max | Indel editing efficiency | 66 nt target sequence |
+| SpCas9 | Indel editing efficiency | 63-nt target sequence |
+| OpenCRISPR-1 | Indel editing efficiency | 63-nt target sequence |
+| hfCas12Max | Indel editing efficiency | 66-nt target sequence |
 
-### Base-editor models (6)
+### Adenine base-editor models
 
 | Model | Task | Input layout |
 |---|---|---|
-| ABE8e-nSpCas9 | Base editing efficiency | 63 nt target sequence |
-| ABE8e-nSpCas9-NG | Base editing efficiency | 63 nt target sequence |
-| ABEmax-nSpRY | Base editing efficiency | 63 nt target sequence |
-| BE4max | Base editing efficiency | 63 nt target sequence |
-| rAPOBEC1-BE3 | Base editing efficiency | 63 nt target sequence |
-| QBEmax | Base editing efficiency | 63 nt target sequence |
+| ABE8e-nSpCas9 | Base editing efficiency | 63-nt target sequence |
+| ABE8e-nSpCas9-NG | Base editing efficiency | 63-nt target sequence |
+| ABEmax-nSpRY | Base editing efficiency | 63-nt target sequence |
 
-Target sequence layout: 63 nt = 20 nt upstream + 20 nt sgRNA + PAM3 + 20 nt
-downstream; 66 nt = 20 nt upstream + TTN PAM + 23 nt sgRNA + 20 nt downstream.
+### Cytosine base-editor models
+
+| Model | Task | Input layout |
+|---|---|---|
+| BE4max | Base editing efficiency | 63-nt target sequence |
+| rAPOBEC1-BE3 | Base editing efficiency | 63-nt target sequence |
+| QBEmax | Base editing efficiency | 63-nt target sequence |
+
+Target sequence layout: 63 nt = 20-nt upstream + 20-nt spacer + 3-nt PAM + 20-nt
+downstream; 66 nt = 20-nt upstream + TTN PAM + 23-nt spacer + 20-nt downstream.
 
 ## Repository layout
 
@@ -86,7 +91,7 @@ CUDA_VISIBLE_DEVICES=0 python predict_be_efficiency.py \
   --saved-model-mode require --device cuda
 ```
 
-Only the best-predicted editor per sgRNA:
+Only the best-predicted editor per spacer:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python predict_be_efficiency.py \
@@ -99,10 +104,10 @@ CUDA_VISIBLE_DEVICES=0 python predict_be_efficiency.py \
 ### Nuclease / indel models
 
 SpCas9 and OpenCRISPR-1 input column: `target63_sequence`
-(`upstream20 + sgRNA20 + PAM3 + downstream20`).
+(20-nt upstream + 20-nt spacer + 3-nt PAM + 20-nt downstream).
 
 hfCas12Max input column: `target66_sequence`
-(`upstream20 + TTN PAM + sgRNA23 + downstream20`).
+(20-nt upstream + TTN PAM + 23-nt spacer + 20-nt downstream).
 
 `normalized_sgrna_name` is optional. `sgrna_sequence` / `pam` may also be
 supplied; if present they must match the target sequence.
