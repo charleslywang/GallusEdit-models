@@ -57,7 +57,8 @@ conda install -c bioconda viennarna=2.7.2 -y
 ```
 
 TabPFN is installed by `requirements.txt`, and its regressor weights are
-downloaded automatically on first use. A CUDA GPU is required.
+downloaded automatically on first use. A CUDA GPU is required. ViennaRNA
+provides the `RNAfold` executable used for base-editor sequence features.
 
 ## Download the model files
 
