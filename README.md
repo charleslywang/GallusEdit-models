@@ -53,12 +53,13 @@ nuclease/indel editors.
 conda create -n gallusedit python=3.11 -y
 conda activate gallusedit
 pip install -r requirements.txt
-conda install -c bioconda viennarna=2.7.2 -y
+conda install -c conda-forge -c bioconda viennarna=2.7.2 -y
 ```
 
 TabPFN is installed by `requirements.txt`, and its regressor weights are
 downloaded automatically on first use. A CUDA GPU is required. ViennaRNA
-provides the `RNAfold` executable used for base-editor sequence features.
+provides the `RNAfold` executable used for base-editor sequence features
+(install it with conda, as above).
 
 ## Download the model files
 
