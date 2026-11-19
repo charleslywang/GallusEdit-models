@@ -14,18 +14,13 @@ nuclease/indel editors.
 | OpenCRISPR-1 | Indel editing efficiency | 63 nt target sequence |
 | hfCas12Max | Indel editing efficiency | 66 nt target sequence |
 
-### Adenine base-editor models
+### Base-editor models (6)
 
 | Model | Task | Input layout |
 |---|---|---|
 | ABE8e-nSpCas9 | Base editing efficiency | 63 nt target sequence |
 | ABE8e-nSpCas9-NG | Base editing efficiency | 63 nt target sequence |
 | ABEmax-nSpRY | Base editing efficiency | 63 nt target sequence |
-
-### Cytosine base-editor models
-
-| Model | Task | Input layout |
-|---|---|---|
 | BE4max | Base editing efficiency | 63 nt target sequence |
 | rAPOBEC1-BE3 | Base editing efficiency | 63 nt target sequence |
 | QBEmax | Base editing efficiency | 63 nt target sequence |
